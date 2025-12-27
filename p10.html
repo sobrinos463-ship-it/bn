@@ -1,0 +1,328 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil y Configuración Técnica - AI Coach</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+        }
+
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .personality-card.active {
+            border-color: #3b82f6;
+            background: rgba(59, 130, 246, 0.15);
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #3b82f6;
+            background-color: #3b82f6;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #1e3a8a;
+        }
+
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="min-h-screen pb-24">
+
+    <!-- Top Navigation -->
+    <nav class="sticky top-0 z-50 flex items-center justify-between p-4 glass-card border-b border-slate-800">
+        <button data-goto="p4" class="p-2 hover:bg-slate-800 rounded-full transition-colors">
+            <i class="fa-solid fa-chevron-left text-xl"></i>
+        </button>
+        <h1 class="text-lg font-bold">Perfil Técnico</h1>
+        <button class="p-2 text-blue-400 font-semibold hover:bg-blue-900/20 rounded-lg">Guardar</button>
+    </nav>
+
+    <main class="max-w-md mx-auto p-4 space-y-8">
+
+        <!-- User Identity Section -->
+        <section class="flex flex-col items-center pt-4">
+            <div class="relative">
+                <img src="https://picsum.photos/seed/p10_user/150/150" alt="Avatar" class="w-24 h-24 rounded-full border-4 border-blue-500 shadow-lg shadow-blue-500/20">
+                <button class="absolute bottom-0 right-0 bg-blue-600 p-2 rounded-full border-2 border-slate-900">
+                    <i class="fa-solid fa-camera text-xs"></i>
+                </button>
+            </div>
+            <h2 class="mt-4 text-2xl font-extrabold">Alex Rivera</h2>
+            <p class="text-slate-400 text-sm">Nivel: Atleta Avanzado • Miembro Pro</p>
+            <div class="mt-3 px-3 py-1 bg-slate-800 rounded-full text-xs font-medium text-slate-300">
+                <i class="fa-solid fa-fire text-orange-500 mr-1"></i> 42 Días de Racha
+            </div>
+        </section>
+
+        <!-- Personality Configuration (Coach Personality) -->
+        <section class="space-y-4">
+            <h3 class="text-sm font-bold uppercase tracking-wider text-blue-400">Personalidad del Coach IA</h3>
+            <div class="grid grid-cols-1 gap-3">
+                <!-- Strict Personality -->
+                <div class="personality-card active p-4 rounded-xl border border-slate-700 cursor-pointer transition-all flex items-center gap-4">
+                    <div class="w-12 h-12 bg-red-900/30 rounded-lg flex items-center justify-center">
+                        <i class="fa-solid fa-hand-fist text-red-500 text-xl"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="font-bold">Estricto</h4>
+                        <p class="text-xs text-slate-400">Disciplina militar, cero excusas, feedback directo y duro.</p>
+                    </div>
+                    <i class="fa-solid fa-circle-check text-blue-500"></i>
+                </div>
+
+                <!-- Motivator Personality -->
+                <div class="personality-card p-4 rounded-xl border border-slate-700 cursor-pointer transition-all flex items-center gap-4 hover:border-slate-500">
+                    <div class="w-12 h-12 bg-yellow-900/30 rounded-lg flex items-center justify-center">
+                        <i class="fa-solid fa-bolt text-yellow-500 text-xl"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="font-bold">Motivador</h4>
+                        <p class="text-xs text-slate-400">Enfoque positivo, refuerzo constante y psicología deportiva.</p>
+                    </div>
+                    <i class="fa-regular fa-circle text-slate-600"></i>
+                </div>
+
+                <!-- Clinical Personality -->
+                <div class="personality-card p-4 rounded-xl border border-slate-700 cursor-pointer transition-all flex items-center gap-4 hover:border-slate-500">
+                    <div class="w-12 h-12 bg-emerald-900/30 rounded-lg flex items-center justify-center">
+                        <i class="fa-solid fa-microscope text-emerald-500 text-xl"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="font-bold">Clínico / Técnico</h4>
+                        <p class="text-xs text-slate-400">Basado en datos, biomecánica pura y análisis de métricas.</p>
+                    </div>
+                    <i class="fa-regular fa-circle text-slate-600"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- Integrations & Wearables -->
+        <section class="space-y-4">
+            <h3 class="text-sm font-bold uppercase tracking-wider text-blue-400">Integración de Dispositivos</h3>
+            <div class="glass-card rounded-2xl overflow-hidden divide-y divide-slate-800">
+                <!-- Garmin -->
+                <div class="flex items-center justify-between p-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-black rounded flex items-center justify-center border border-slate-700">
+                            <span class="font-black italic text-xs">GARMIN</span>
+                        </div>
+                        <div>
+                            <p class="text-sm font-semibold">Garmin Connect</p>
+                            <p class="text-[10px] text-slate-500 italic">Última sinc. hace 2 min</p>
+                        </div>
+                    </div>
+                    <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+                        <input type="checkbox" name="toggle" id="toggleGarmin" checked class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer right-0"/>
+                        <label for="toggleGarmin" class="toggle-label block overflow-hidden h-6 rounded-full bg-blue-600 cursor-pointer"></label>
+                    </div>
+                </div>
+
+                <!-- Apple Health -->
+                <div class="flex items-center justify-between p-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-white rounded flex items-center justify-center">
+                            <i class="fa-brands fa-apple text-black text-xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm font-semibold text-slate-300">Apple Health</p>
+                            <p class="text-[10px] text-slate-500">Desconectado</p>
+                        </div>
+                    </div>
+                    <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+                        <input type="checkbox" name="toggle" id="toggleApple" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"/>
+                        <label for="toggleApple" class="toggle-label block overflow-hidden h-6 rounded-full bg-slate-700 cursor-pointer"></label>
+                    </div>
+                </div>
+
+                <!-- Whoop -->
+                <div class="flex items-center justify-between p-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-red-600 rounded flex items-center justify-center">
+                            <span class="font-bold text-xs">WHOOP</span>
+                        </div>
+                        <div>
+                            <p class="text-sm font-semibold">Whoop API</p>
+                            <p class="text-[10px] text-slate-500 italic">Midiendo Recovery...</p>
+                        </div>
+                    </div>
+                    <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+                        <input type="checkbox" name="toggle" id="toggleWhoop" checked class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer right-0"/>
+                        <label for="toggleWhoop" class="toggle-label block overflow-hidden h-6 rounded-full bg-blue-600 cursor-pointer"></label>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Metrics History -->
+        <section class="space-y-4">
+            <div class="flex justify-between items-end">
+                <h3 class="text-sm font-bold uppercase tracking-wider text-blue-400">Historial de Métricas</h3>
+                <button data-goto="p9" class="text-xs text-blue-400 hover:underline">Ver Reporte Detallado</button>
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+                <div class="glass-card p-4 rounded-xl">
+                    <p class="text-slate-400 text-xs font-medium">Peso Actual</p>
+                    <p class="text-xl font-bold mt-1">78.5 <span class="text-sm font-normal text-slate-500">kg</span></p>
+                    <div class="mt-2 text-[10px] text-emerald-400">
+                        <i class="fa-solid fa-arrow-down mr-1"></i> -1.2kg este mes
+                    </div>
+                </div>
+                <div class="glass-card p-4 rounded-xl">
+                    <p class="text-slate-400 text-xs font-medium">Grasa Corporal</p>
+                    <p class="text-xl font-bold mt-1">14.2 <span class="text-sm font-normal text-slate-500">%</span></p>
+                    <div class="mt-2 text-[10px] text-emerald-400">
+                        <i class="fa-solid fa-arrow-down mr-1"></i> -0.5% este mes
+                    </div>
+                </div>
+                <div class="glass-card p-4 rounded-xl">
+                    <p class="text-slate-400 text-xs font-medium">VO2 Max</p>
+                    <p class="text-xl font-bold mt-1">52.4 <span class="text-sm font-normal text-slate-500">ml/kg</span></p>
+                    <div class="mt-2 text-[10px] text-blue-400">
+                        <i class="fa-solid fa-arrow-up mr-1"></i> +1.2 pts
+                    </div>
+                </div>
+                <div class="glass-card p-4 rounded-xl">
+                    <p class="text-slate-400 text-xs font-medium">Volumen Semanal</p>
+                    <p class="text-xl font-bold mt-1">125 <span class="text-sm font-normal text-slate-500">tons</span></p>
+                    <div class="mt-2 text-[10px] text-amber-400">
+                        <i class="fa-solid fa-equals mr-1"></i> Estable
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Account Settings -->
+        <section class="space-y-4">
+            <h3 class="text-sm font-bold uppercase tracking-wider text-blue-400">Configuración de Cuenta</h3>
+            <div class="glass-card rounded-2xl overflow-hidden">
+                <div class="p-4 flex items-center gap-4 hover:bg-slate-800/50 cursor-pointer transition-colors">
+                    <i class="fa-solid fa-user-shield text-slate-400 w-5"></i>
+                    <div class="flex-1">
+                        <p class="text-sm font-medium">Privacidad y Seguridad</p>
+                        <p class="text-xs text-slate-500">2FA Activado, Visibilidad de perfil</p>
+                    </div>
+                    <i class="fa-solid fa-chevron-right text-slate-600 text-xs"></i>
+                </div>
+                <div class="p-4 border-t border-slate-800 flex items-center gap-4 hover:bg-slate-800/50 cursor-pointer transition-colors">
+                    <i class="fa-solid fa-bell text-slate-400 w-5"></i>
+                    <div class="flex-1">
+                        <p class="text-sm font-medium">Notificaciones</p>
+                        <p class="text-xs text-slate-500">Push, Email, Recordatorios de IA</p>
+                    </div>
+                    <i class="fa-solid fa-chevron-right text-slate-600 text-xs"></i>
+                </div>
+                <div class="p-4 border-t border-slate-800 flex items-center gap-4 hover:bg-slate-800/50 cursor-pointer transition-colors">
+                    <i class="fa-solid fa-earth-americas text-slate-400 w-5"></i>
+                    <div class="flex-1">
+                        <p class="text-sm font-medium">Idioma y Región</p>
+                        <p class="text-xs text-slate-500">Español (ES), Sistema Métrico</p>
+                    </div>
+                    <i class="fa-solid fa-chevron-right text-slate-600 text-xs"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- Danger Zone -->
+        <section class="pt-4">
+            <button data-goto="p1" class="w-full p-4 glass-card border-red-900/50 text-red-500 font-bold rounded-2xl hover:bg-red-900/10 transition-colors">
+                <i class="fa-solid fa-right-from-bracket mr-2"></i> Cerrar Sesión
+            </button>
+            <p class="text-center text-[10px] text-slate-600 mt-6 uppercase tracking-[0.2em]">v3.4.2 Production Build - AI Core v9.0</p>
+        </section>
+
+    </main>
+
+    <!-- Bottom Navigation Bar (Mirroring Home) -->
+    <nav class="fixed bottom-0 left-0 right-0 glass-card border-t border-slate-800 px-6 py-3 flex justify-between items-center z-50">
+        <button data-goto="p4" class="flex flex-col items-center gap-1 text-slate-500">
+            <i class="fa-solid fa-house text-lg"></i>
+            <span class="text-[10px] font-medium uppercase">Home</span>
+        </button>
+        <button data-goto="p7" class="flex flex-col items-center gap-1 text-slate-500">
+            <i class="fa-solid fa-comment-dots text-lg"></i>
+            <span class="text-[10px] font-medium uppercase">Coach</span>
+        </button>
+        <button data-goto="p5" class="relative -top-6 bg-blue-600 w-14 h-14 rounded-full flex items-center justify-center shadow-lg shadow-blue-500/40 border-4 border-slate-900 text-white">
+            <i class="fa-solid fa-play text-xl ml-1"></i>
+        </button>
+        <button data-goto="p8" class="flex flex-col items-center gap-1 text-slate-500">
+            <i class="fa-solid fa-video text-lg"></i>
+            <span class="text-[10px] font-medium uppercase">Vision</span>
+        </button>
+        <button data-goto="p10" class="flex flex-col items-center gap-1 text-blue-500">
+            <i class="fa-solid fa-user-gear text-lg"></i>
+            <span class="text-[10px] font-medium uppercase">Perfil</span>
+        </button>
+    </nav>
+
+    <script>
+        // Personality selector simulation
+        document.querySelectorAll('.personality-card').forEach(card => {
+            card.addEventListener('click', () => {
+                document.querySelectorAll('.personality-card').forEach(c => {
+                    c.classList.remove('active');
+                    c.querySelector('.fa-circle-check')?.classList.replace('fa-solid', 'fa-regular');
+                    c.querySelector('.fa-circle-check')?.classList.replace('fa-circle-check', 'fa-circle');
+                    c.querySelector('.fa-circle-check')?.classList.replace('text-blue-500', 'text-slate-600');
+                });
+                card.classList.add('active');
+                // Note: Logic here is simplified, in real app would swap icons back and forth
+            });
+        });
+
+        // Navigation simulation
+        document.querySelectorAll('[data-goto]').forEach(button => {
+            button.addEventListener('click', () => {
+                const targetId = button.getAttribute('data-goto');
+                console.log(`Navigating to: ${targetId}`);
+                // Simple feedback effect
+                button.classList.add('scale-95');
+                setTimeout(() => {
+                    button.classList.remove('scale-95');
+                    alert(`Navegando a la página: ${targetId}`);
+                }, 100);
+            });
+        });
+    </script>
+
+<script>
+  // Pro Prototype - Static Navigation Shim
+  document.addEventListener('DOMContentLoaded', () => {
+    document.body.addEventListener('click', (e) => {
+      const target = e.target.closest('[data-goto]');
+      if (target) {
+        e.preventDefault();
+        const pageId = target.getAttribute('data-goto');
+        // Navigate to the corresponding HTML file
+        window.location.href = pageId + '.html';
+      }
+    });
+  });
+</script>
+</body>
+</html>
+
+```
