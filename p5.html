@@ -1,0 +1,266 @@
+```html
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sesión de Entrenamiento Activa - AI Coach</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+        }
+
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .pulse-green {
+            animation: pulse-green 2s infinite;
+        }
+
+        @keyframes pulse-green {
+            0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+        }
+
+        .progress-gradient {
+            background: linear-gradient(90deg, #22c55e 0%, #3b82f6 100%);
+        }
+
+        .shimmer {
+            background: linear-gradient(90deg, #1e293b 25%, #334155 50%, #1e293b 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite linear;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Top Navigation / Progress Header -->
+    <header class="p-4 sticky top-0 z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-md mx-auto flex items-center justify-between">
+            <button data-goto="p4" class="p-2 hover:bg-slate-800 rounded-full transition-colors">
+                <i class="fa-solid fa-chevron-left text-xl"></i>
+            </button>
+            <div class="flex flex-col items-center">
+                <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Pecho & Tríceps - Set 2/4</span>
+                <span id="timer" class="text-lg font-mono font-bold text-green-400">14:22</span>
+            </div>
+            <button data-goto="p9" class="px-3 py-1 bg-red-500/10 text-red-500 border border-red-500/20 rounded-lg text-sm font-bold">
+                FINALIZAR
+            </button>
+        </div>
+        <!-- Progress Bar -->
+        <div class="max-w-md mx-auto mt-4 h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
+            <div class="h-full progress-gradient" style="width: 45%;"></div>
+        </div>
+    </header>
+
+    <main class="flex-1 max-w-md mx-auto w-full p-4 space-y-6 pb-32">
+        
+        <!-- Exercise Media -->
+        <div class="relative rounded-3xl overflow-hidden aspect-video group">
+            <img src="https://picsum.photos/seed/p5workout/800/450" alt="Exercise" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent flex items-end p-4">
+                <div>
+                    <h1 class="text-2xl font-extrabold text-white">Press de Banca Inclinado</h1>
+                    <p class="text-slate-300 text-sm flex items-center gap-2">
+                        <i class="fa-solid fa-circle-play text-blue-400"></i> Ver técnica correcta
+                    </p>
+                </div>
+            </div>
+            <div class="absolute top-4 right-4 bg-blue-600 text-white text-[10px] font-bold px-2 py-1 rounded-full flex items-center gap-1 shadow-lg">
+                <i class="fa-solid fa-robot"></i> IA SUGERIDO
+            </div>
+        </div>
+
+        <!-- Targets Section -->
+        <div class="grid grid-cols-2 gap-4">
+            <div class="glass-card p-4 rounded-2xl flex flex-col items-center justify-center">
+                <span class="text-slate-400 text-xs font-medium uppercase mb-1">Peso Sugerido</span>
+                <div class="flex items-baseline gap-1">
+                    <span class="text-3xl font-black text-white">24</span>
+                    <span class="text-slate-400 font-bold">kg</span>
+                </div>
+            </div>
+            <div class="glass-card p-4 rounded-2xl flex flex-col items-center justify-center border-blue-500/30">
+                <span class="text-slate-400 text-xs font-medium uppercase mb-1">Reps Objetivo</span>
+                <div class="flex items-baseline gap-1">
+                    <span class="text-3xl font-black text-white">10-12</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dynamic Adjustment Buttons -->
+        <div class="space-y-3">
+            <p class="text-xs font-bold text-slate-500 uppercase tracking-widest text-center">Ajuste Instantáneo IA</p>
+            <div class="flex gap-3">
+                <button data-goto="p6" class="flex-1 bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 text-amber-500 py-4 rounded-2xl flex flex-col items-center transition-all active:scale-95">
+                    <i class="fa-solid fa-gauge-high text-xl mb-1"></i>
+                    <span class="text-[10px] font-bold uppercase">Demasiado Fácil</span>
+                </button>
+                <button data-goto="p6" class="flex-1 bg-red-500/10 hover:bg-red-500/20 border border-red-500/30 text-red-500 py-4 rounded-2xl flex flex-col items-center transition-all active:scale-95">
+                    <i class="fa-solid fa-skull-crossbones text-xl mb-1"></i>
+                    <span class="text-[10px] font-bold uppercase">Fallo Muscular</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Previous Sets Tracking -->
+        <div class="space-y-3">
+            <div class="flex justify-between items-center px-1">
+                <h3 class="font-bold text-slate-300">Sets Previos</h3>
+                <span class="text-xs text-blue-400 font-bold">RPE 8 Sugerido</span>
+            </div>
+            
+            <div class="space-y-2">
+                <!-- Set 1 Completed -->
+                <div class="glass-card p-3 rounded-xl flex items-center justify-between opacity-60">
+                    <div class="flex items-center gap-4">
+                        <span class="w-6 h-6 rounded-full bg-slate-700 flex items-center justify-center text-xs font-bold text-slate-300">1</span>
+                        <div class="flex gap-4">
+                            <span class="text-sm font-medium">24 kg</span>
+                            <span class="text-sm font-medium">12 reps</span>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-circle-check text-green-500"></i>
+                </div>
+
+                <!-- Active Set Form -->
+                <div class="bg-blue-600/10 border border-blue-500/30 p-4 rounded-xl flex items-center justify-between">
+                    <div class="flex items-center gap-4">
+                        <span class="w-6 h-6 rounded-full bg-blue-500 flex items-center justify-center text-xs font-bold text-white">2</span>
+                        <div class="flex items-center gap-2">
+                            <input type="number" placeholder="24" class="w-16 bg-slate-800 border-none rounded-lg p-2 text-center text-white font-bold focus:ring-2 focus:ring-blue-500">
+                            <span class="text-slate-500">kg</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <input type="number" placeholder="10" class="w-16 bg-slate-800 border-none rounded-lg p-2 text-center text-white font-bold focus:ring-2 focus:ring-blue-500">
+                            <span class="text-slate-500">reps</span>
+                        </div>
+                    </div>
+                    <button class="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center shadow-lg shadow-green-500/20 active:scale-90 transition-transform">
+                        <i class="fa-solid fa-check text-white"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vision AI Mini Banner -->
+        <div data-goto="p8" class="glass-card p-4 rounded-2xl border-purple-500/30 flex items-center gap-4 cursor-pointer hover:bg-purple-500/5 transition-colors">
+            <div class="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center text-purple-400">
+                <i class="fa-solid fa-video text-xl"></i>
+            </div>
+            <div class="flex-1">
+                <h4 class="text-sm font-bold text-purple-300">Analizar Técnica con IA</h4>
+                <p class="text-[11px] text-slate-400">Abre la cámara para corrección en vivo</p>
+            </div>
+            <i class="fa-solid fa-chevron-right text-slate-600"></i>
+        </div>
+
+    </main>
+
+    <!-- Bottom Action Bar -->
+    <footer class="fixed bottom-0 left-0 right-0 p-4 bg-slate-900/90 backdrop-blur-xl border-t border-slate-800">
+        <div class="max-w-md mx-auto flex items-center gap-4">
+            <div class="flex-1 flex flex-col">
+                <span class="text-[10px] text-slate-500 uppercase font-bold">Próximo Ejercicio</span>
+                <span class="text-sm font-bold truncate">Aperturas con Polea</span>
+            </div>
+            <button class="px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-black rounded-2xl flex items-center gap-3 transition-all transform active:scale-95 shadow-xl shadow-blue-600/20">
+                LOG SET <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </div>
+    </footer>
+
+    <!-- Rest Timer Overlay (Hidden by default) -->
+    <div id="rest-timer-modal" class="hidden fixed inset-0 z-[60] flex items-center justify-center p-6 bg-slate-950/80 backdrop-blur-sm">
+        <div class="glass-card w-full max-w-xs p-8 rounded-3xl text-center flex flex-col items-center">
+            <span class="text-blue-400 font-bold text-sm tracking-widest uppercase mb-4">Descanso sugerido por IA</span>
+            <div class="relative w-40 h-40 flex items-center justify-center mb-6">
+                <svg class="w-full h-full -rotate-90">
+                    <circle cx="80" cy="80" r="70" stroke="currentColor" stroke-width="8" fill="transparent" class="text-slate-800"></circle>
+                    <circle cx="80" cy="80" r="70" stroke="currentColor" stroke-width="8" fill="transparent" class="text-blue-500" stroke-dasharray="440" stroke-dashoffset="110"></circle>
+                </svg>
+                <span class="absolute text-4xl font-black">0:45</span>
+            </div>
+            <div class="flex gap-3 w-full">
+                <button onclick="hideRest()" class="flex-1 py-3 bg-slate-800 rounded-xl text-xs font-bold uppercase">Omitir</button>
+                <button onclick="hideRest()" class="flex-1 py-3 bg-blue-600 rounded-xl text-xs font-bold uppercase">+30s</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simple Navigation Logic for Prototype
+        document.querySelectorAll('[data-goto]').forEach(button => {
+            button.addEventListener('click', () => {
+                const targetId = button.getAttribute('data-goto');
+                console.log(`Navigating to: ${targetId}`);
+                // In a real environment, this would trigger the page change
+                // For this demo, we'll just show a visual feedback
+                button.classList.add('ring-2', 'ring-blue-400');
+                setTimeout(() => button.classList.remove('ring-2', 'ring-blue-400'), 200);
+            });
+        });
+
+        // Toggle the rest timer modal for demonstration
+        function showRest() {
+            document.getElementById('rest-timer-modal').classList.remove('hidden');
+        }
+
+        function hideRest() {
+            document.getElementById('rest-timer-modal').classList.add('hidden');
+        }
+
+        // Logic for Log Set button to show rest
+        const logBtn = document.querySelector('footer button');
+        if(logBtn) {
+            logBtn.addEventListener('click', (e) => {
+                // Prevent goto navigation for this specific action if needed
+                showRest();
+            });
+        }
+
+        // Timer simulation
+        let seconds = 862; // 14:22
+        setInterval(() => {
+            seconds++;
+            const mins = Math.floor(seconds / 60);
+            const secs = seconds % 60;
+            document.getElementById('timer').innerText = `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+        }, 1000);
+    </script>
+
+
+<script>
+  // Pro Prototype - Static Navigation Shim
+  document.addEventListener('DOMContentLoaded', () => {
+    document.body.addEventListener('click', (e) => {
+      const target = e.target.closest('[data-goto]');
+      if (target) {
+        e.preventDefault();
+        const pageId = target.getAttribute('data-goto');
+        // Navigate to the corresponding HTML file
+        window.location.href = pageId + '.html';
+      }
+    });
+  });
+</script>
+</body>
+</html>
+```
