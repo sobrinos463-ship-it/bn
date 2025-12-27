@@ -1,0 +1,261 @@
+```html
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Principal | AI Coach</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #020617;
+            color: #f8fafc;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .ai-gradient-text {
+            background: linear-gradient(135deg, #818cf8 0%, #c084fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .pulse-ai {
+            box-shadow: 0 0 0 0 rgba(129, 140, 248, 0.4);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(129, 140, 248, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(129, 140, 248, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(129, 140, 248, 0); }
+        }
+
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body class="min-h-screen pb-24">
+
+    <!-- Header Section -->
+    <header class="p-6 flex justify-between items-center sticky top-0 z-50 bg-slate-950/80 backdrop-blur-md">
+        <div class="flex flex-col">
+            <span class="text-slate-400 text-sm font-medium">¡Hola de nuevo!</span>
+            <h1 class="text-2xl font-bold">Alex Rivera</h1>
+        </div>
+        <div class="flex items-center gap-4">
+            <button class="relative text-slate-300">
+                <i class="fa-regular fa-bell text-xl"></i>
+                <span class="absolute -top-1 -right-1 w-2 h-2 bg-indigo-500 rounded-full"></span>
+            </button>
+            <div data-goto="p10" class="w-10 h-10 rounded-full border-2 border-indigo-500/30 overflow-hidden cursor-pointer">
+                <img src="https://picsum.photos/seed/user123/100/100" alt="Profile" class="w-full h-full object-cover">
+            </div>
+        </div>
+    </header>
+
+    <main class="px-6 space-y-8">
+
+        <!-- Progress Tracking -->
+        <section class="grid grid-cols-3 gap-4">
+            <div class="glass-card rounded-2xl p-4 flex flex-col items-center text-center">
+                <span class="text-indigo-400 text-xs font-bold uppercase tracking-wider mb-1">Racha</span>
+                <span class="text-xl font-extrabold italic">12 <i class="fa-solid fa-fire text-orange-500"></i></span>
+            </div>
+            <div class="glass-card rounded-2xl p-4 flex flex-col items-center text-center">
+                <span class="text-indigo-400 text-xs font-bold uppercase tracking-wider mb-1">Energía</span>
+                <span class="text-xl font-extrabold italic">84% <i class="fa-solid fa-bolt text-yellow-400"></i></span>
+            </div>
+            <div class="glass-card rounded-2xl p-4 flex flex-col items-center text-center">
+                <span class="text-indigo-400 text-xs font-bold uppercase tracking-wider mb-1">Plan</span>
+                <span class="text-xl font-extrabold italic">Día 4</span>
+            </div>
+        </section>
+
+        <!-- Featured Workout of the Day -->
+        <section>
+            <h2 class="text-lg font-semibold mb-4 flex items-center gap-2">
+                <i class="fa-solid fa-calendar-day text-indigo-500"></i> Entrenamiento de Hoy
+            </h2>
+            <div class="relative group overflow-hidden rounded-3xl aspect-[16/10] glass-card">
+                <img src="https://picsum.photos/seed/p4workout/800/500" alt="Workout" class="absolute inset-0 w-full h-full object-cover opacity-60">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-6 w-full">
+                    <div class="flex justify-between items-end">
+                        <div>
+                            <span class="bg-indigo-600 text-[10px] font-bold px-2 py-1 rounded uppercase mb-2 inline-block">Fuerza & Potencia</span>
+                            <h3 class="text-2xl font-extrabold">Empuje Dinámico</h3>
+                            <p class="text-slate-300 text-sm mt-1">45 min • 320 kcal estimadas</p>
+                        </div>
+                        <button data-goto="p5" class="bg-indigo-500 hover:bg-indigo-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg shadow-indigo-500/40 transition-transform active:scale-95">
+                            <i class="fa-solid fa-play text-xl ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Memory & Motivation -->
+        <section>
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-lg font-semibold flex items-center gap-2">
+                    <i class="fa-solid fa-brain ai-gradient-text"></i> Memoria de la IA
+                </h2>
+            </div>
+            <div class="bg-indigo-900/20 border border-indigo-500/30 rounded-2xl p-6 relative overflow-hidden">
+                <div class="absolute top-[-20px] right-[-20px] opacity-10">
+                    <i class="fa-solid fa-quote-right text-8xl text-indigo-400"></i>
+                </div>
+                <p class="text-indigo-100 italic leading-relaxed relative z-10">
+                    "Alex, el martes pasado lograste un récord en Press Militar a pesar de dormir solo 6 horas. Hoy tienes la energía a tope; no dejes que el peso te intimide, tu cuerpo ya sabe qué hacer."
+                </p>
+                <div class="mt-4 flex items-center gap-2">
+                    <div class="flex space-x-1">
+                        <div class="w-1 h-1 bg-indigo-400 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
+                        <div class="w-1 h-1 bg-indigo-400 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+                        <div class="w-1 h-1 bg-indigo-400 rounded-full animate-bounce" style="animation-delay: 0.3s"></div>
+                    </div>
+                    <span class="text-[10px] text-indigo-400 font-bold uppercase tracking-widest">IA Analizando contexto</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Access Grid -->
+        <section class="grid grid-cols-2 gap-4">
+            <button data-goto="p8" class="glass-card p-4 rounded-2xl flex items-center gap-4 transition-all active:scale-95">
+                <div class="w-12 h-12 bg-slate-800 rounded-xl flex items-center justify-center text-indigo-400">
+                    <i class="fa-solid fa-video text-xl"></i>
+                </div>
+                <div class="text-left">
+                    <h4 class="font-bold text-sm">Analizar Técnica</h4>
+                    <p class="text-[10px] text-slate-400">Usa la cámara IA</p>
+                </div>
+            </button>
+            <button data-goto="p9" class="glass-card p-4 rounded-2xl flex items-center gap-4 transition-all active:scale-95">
+                <div class="w-12 h-12 bg-slate-800 rounded-xl flex items-center justify-center text-emerald-400">
+                    <i class="fa-solid fa-chart-line text-xl"></i>
+                </div>
+                <div class="text-left">
+                    <h4 class="font-bold text-sm">Progresión</h4>
+                    <p class="text-[10px] text-slate-400">Carga progresiva</p>
+                </div>
+            </button>
+        </section>
+
+        <!-- Today's Routine List (Condensed) -->
+        <section>
+            <h2 class="text-lg font-semibold mb-4">Tu Plan de Sesión</h2>
+            <div class="space-y-3">
+                <div class="flex items-center gap-4 glass-card p-3 rounded-xl">
+                    <div class="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center font-bold text-indigo-400">01</div>
+                    <div class="flex-1">
+                        <h5 class="font-semibold text-sm">Press de Banca (IA Adaptado)</h5>
+                        <p class="text-xs text-slate-500">4 Series x 8-10 reps</p>
+                    </div>
+                    <i class="fa-solid fa-chevron-right text-slate-600 text-xs"></i>
+                </div>
+                <div class="flex items-center gap-4 glass-card p-3 rounded-xl opacity-70">
+                    <div class="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center font-bold text-slate-400">02</div>
+                    <div class="flex-1">
+                        <h5 class="font-semibold text-sm">Aperturas con Polea</h5>
+                        <p class="text-xs text-slate-500">3 Series x 12 reps</p>
+                    </div>
+                    <i class="fa-solid fa-chevron-right text-slate-600 text-xs"></i>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Floating AI Button -->
+    <button data-goto="p7" class="fixed bottom-24 right-6 w-16 h-16 bg-indigo-600 rounded-full flex items-center justify-center text-white shadow-2xl shadow-indigo-500/50 z-50 pulse-ai transition-transform active:scale-90">
+        <i class="fa-solid fa-comment-dots text-2xl"></i>
+    </button>
+
+    <!-- Bottom Navigation Bar -->
+    <nav class="fixed bottom-0 left-0 right-0 bg-slate-900/80 backdrop-blur-xl border-t border-slate-800 px-8 py-4 flex justify-between items-center z-50">
+        <button data-goto="p4" class="flex flex-col items-center gap-1 text-indigo-400">
+            <i class="fa-solid fa-house-chimney text-xl"></i>
+            <span class="text-[10px] font-bold">Home</span>
+        </button>
+        <button data-goto="p3" class="flex flex-col items-center gap-1 text-slate-500">
+            <i class="fa-solid fa-dumbbell text-xl"></i>
+            <span class="text-[10px] font-bold">Plan</span>
+        </button>
+        <button data-goto="p8" class="flex flex-col items-center gap-1 text-slate-500">
+            <i class="fa-solid fa-camera-retro text-xl"></i>
+            <span class="text-[10px] font-bold">Vision</span>
+        </button>
+        <button data-goto="p10" class="flex flex-col items-center gap-1 text-slate-500">
+            <i class="fa-solid fa-user text-xl"></i>
+            <span class="text-[10px] font-bold">Perfil</span>
+        </button>
+    </nav>
+
+    <script>
+        // Prototype navigation handler
+        document.querySelectorAll('[data-goto]').forEach(element => {
+            element.addEventListener('click', () => {
+                const targetId = element.getAttribute('data-goto');
+                console.log(`Navigating to ${targetId}`);
+                // In a real prototype engine, this would switch visibility
+                // For this standalone file, we alert the destination
+                const pages = {
+                    'p1': 'Bienvenida y Splash',
+                    'p2': 'Onboarding Conversacional',
+                    'p3': 'Generación del Plan Maestro',
+                    'p5': 'Sesión de Entrenamiento Activa',
+                    'p6': 'Módulo de Adaptación en Tiempo Real',
+                    'p7': 'Chat del Coach IA (NLP)',
+                    'p8': 'Análisis de Técnica por Visión',
+                    'p9': 'Resumen y Sobrecarga Progresiva',
+                    'p10': 'Perfil y Configuración Técnica'
+                };
+                
+                if(targetId !== 'p4') {
+                    const pageTitle = pages[targetId] || targetId;
+                    alert(`Navegando a: ${pageTitle} (ID: ${targetId})`);
+                }
+            });
+        });
+
+        // Small interactivity for visual feedback
+        const cards = document.querySelectorAll('.glass-card');
+        cards.forEach(card => {
+            card.addEventListener('touchstart', () => {
+                card.style.transform = 'scale(0.98)';
+            });
+            card.addEventListener('touchend', () => {
+                card.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+
+<script>
+  // Pro Prototype - Static Navigation Shim
+  document.addEventListener('DOMContentLoaded', () => {
+    document.body.addEventListener('click', (e) => {
+      const target = e.target.closest('[data-goto]');
+      if (target) {
+        e.preventDefault();
+        const pageId = target.getAttribute('data-goto');
+        // Navigate to the corresponding HTML file
+        window.location.href = pageId + '.html';
+      }
+    });
+  });
+</script>
+</body>
+</html>
+
+```
