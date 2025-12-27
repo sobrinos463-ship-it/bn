@@ -1,0 +1,280 @@
+```html
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumen y Sobrecarga Progresiva - Coach IA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+        }
+
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .ai-gradient {
+            background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+        }
+
+        .progress-bar {
+            height: 6px;
+            border-radius: 3px;
+            background: rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #10b981 0%, #34d399 100%);
+            transition: width 1s ease-out;
+        }
+
+        .overload-badge {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body class="min-h-screen pb-24">
+
+    <!-- Top Navigation -->
+    <header class="p-6 flex justify-between items-center">
+        <button data-goto="p4" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:text-white transition-colors">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <h1 class="text-lg font-semibold">Análisis de Sesión</h1>
+        <div class="w-10"></div>
+    </header>
+
+    <main class="max-w-md mx-auto px-6 space-y-6">
+        
+        <!-- Header Celebration -->
+        <div class="text-center space-y-2">
+            <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-emerald-500/20 text-emerald-400 mb-2 border border-emerald-500/30">
+                <i class="fa-solid fa-check text-3xl"></i>
+            </div>
+            <h2 class="text-2xl font-bold">¡Entrenamiento Completado!</h2>
+            <p class="text-slate-400 text-sm">Has superado el 95% de los objetivos de hoy.</p>
+        </div>
+
+        <!-- Key Metrics Grid -->
+        <div class="grid grid-cols-3 gap-4">
+            <div class="glass-card p-4 rounded-2xl text-center">
+                <span class="text-slate-400 text-[10px] uppercase font-bold tracking-wider">Volumen</span>
+                <p class="text-xl font-bold mt-1">8,450<span class="text-xs text-slate-500 ml-1">kg</span></p>
+                <span class="text-emerald-400 text-[10px]"><i class="fa-solid fa-caret-up"></i> 12%</span>
+            </div>
+            <div class="glass-card p-4 rounded-2xl text-center">
+                <span class="text-slate-400 text-[10px] uppercase font-bold tracking-wider">Duración</span>
+                <p class="text-xl font-bold mt-1">54<span class="text-xs text-slate-500 ml-1">min</span></p>
+                <span class="text-slate-500 text-[10px]">Ritmo Óptimo</span>
+            </div>
+            <div class="glass-card p-4 rounded-2xl text-center">
+                <span class="text-slate-400 text-[10px] uppercase font-bold tracking-wider">RPE Promedio</span>
+                <p class="text-xl font-bold mt-1">7.5</p>
+                <span class="text-amber-400 text-[10px]">Alta Intensidad</span>
+            </div>
+        </div>
+
+        <!-- AI Insights & Progressive Overload Section -->
+        <div class="ai-gradient p-5 rounded-3xl shadow-xl shadow-indigo-500/20 relative overflow-hidden">
+            <div class="absolute -right-4 -top-4 opacity-20 transform rotate-12">
+                <i class="fa-solid fa-brain text-8xl text-white"></i>
+            </div>
+            <div class="relative z-10">
+                <div class="flex items-center gap-2 mb-3">
+                    <span class="bg-white/20 px-2 py-1 rounded text-[10px] font-bold uppercase tracking-tighter">Análisis de IA</span>
+                    <span class="flex h-2 w-2 rounded-full bg-white"></span>
+                    <span class="text-xs font-medium">Actualización de Cargas Lista</span>
+                </div>
+                <h3 class="text-xl font-bold mb-2">Sobrecarga Confirmada</h3>
+                <p class="text-sm text-indigo-100 leading-relaxed mb-4">
+                    Basado en tu velocidad de ejecución y un RPE reportado de 7 en Press de Banca, he incrementado la intensidad para la sesión de pierna de mañana.
+                </p>
+                <button data-goto="p7" class="bg-white text-indigo-600 px-4 py-2 rounded-xl text-sm font-bold flex items-center gap-2 hover:bg-slate-100 transition-all">
+                    Hablar con Coach IA <i class="fa-solid fa-comment-dots"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Detailed Progression Breakdown -->
+        <div class="space-y-4">
+            <h4 class="text-sm font-bold text-slate-400 uppercase tracking-widest px-1">Ajustes para próxima sesión</h4>
+            
+            <!-- Exercise Item 1 -->
+            <div class="glass-card p-5 rounded-2xl">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h5 class="font-bold text-lg leading-tight">Press de Banca Inclinado</h5>
+                        <p class="text-xs text-slate-400">Progreso de Fuerza: +4.2%</p>
+                    </div>
+                    <div class="bg-emerald-500/10 text-emerald-400 text-xs px-2 py-1 rounded-lg border border-emerald-500/20 font-bold">
+                        LEVEL UP
+                    </div>
+                </div>
+                
+                <div class="flex items-center justify-between gap-4">
+                    <div class="flex-1">
+                        <p class="text-[10px] text-slate-500 uppercase font-bold mb-1">Carga Actual</p>
+                        <p class="text-lg font-mono">80kg <span class="text-sm text-slate-400">x 8 reps</span></p>
+                    </div>
+                    <div class="flex items-center text-indigo-400">
+                        <i class="fa-solid fa-arrow-right-long text-xl"></i>
+                    </div>
+                    <div class="flex-1 text-right">
+                        <p class="text-[10px] text-indigo-400 uppercase font-bold mb-1">Nueva Carga</p>
+                        <p class="text-lg font-mono text-indigo-300 font-bold">82.5kg <span class="text-sm text-indigo-400/70">x 8 reps</span></p>
+                    </div>
+                </div>
+
+                <div class="mt-4 pt-4 border-t border-slate-700/50 flex items-center justify-between">
+                    <div class="flex items-center gap-2 text-xs text-slate-400">
+                        <i class="fa-solid fa-chart-line text-indigo-400"></i>
+                        <span>Eficiencia Técnica: 94%</span>
+                    </div>
+                    <div class="flex items-center gap-1">
+                        <i class="fa-solid fa-star text-xs text-amber-400"></i>
+                        <i class="fa-solid fa-star text-xs text-amber-400"></i>
+                        <i class="fa-solid fa-star text-xs text-amber-400"></i>
+                        <i class="fa-solid fa-star text-xs text-amber-400"></i>
+                        <i class="fa-solid fa-star-half-stroke text-xs text-amber-400"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exercise Item 2 -->
+            <div class="glass-card p-5 rounded-2xl opacity-80 hover:opacity-100 transition-opacity">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h5 class="font-bold text-lg leading-tight">Aperturas con Mancuerna</h5>
+                        <p class="text-xs text-slate-400">Progreso de Volumen: +1 serie</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-center justify-between gap-4">
+                    <div class="flex-1">
+                        <p class="text-[10px] text-slate-500 uppercase font-bold mb-1">Series</p>
+                        <p class="text-lg font-mono">3 <span class="text-sm text-slate-400">x 12 reps</span></p>
+                    </div>
+                    <div class="flex items-center text-slate-600">
+                        <i class="fa-solid fa-arrow-right-long text-xl"></i>
+                    </div>
+                    <div class="flex-1 text-right">
+                        <p class="text-[10px] text-emerald-400 uppercase font-bold mb-1">Siguiente</p>
+                        <p class="text-lg font-mono text-emerald-300 font-bold">4 <span class="text-sm text-emerald-400/70">x 10 reps</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analysis Visual -->
+            <div class="glass-card p-5 rounded-2xl">
+                <h5 class="text-xs font-bold text-slate-400 uppercase mb-4">Curva de Adaptación (Semana 4)</h5>
+                <div class="h-24 w-full flex items-end justify-between gap-2 px-2">
+                    <div class="w-full bg-indigo-500/20 h-[30%] rounded-t-sm"></div>
+                    <div class="w-full bg-indigo-500/30 h-[45%] rounded-t-sm"></div>
+                    <div class="w-full bg-indigo-500/40 h-[40%] rounded-t-sm"></div>
+                    <div class="w-full bg-indigo-500/60 h-[65%] rounded-t-sm"></div>
+                    <div class="w-full bg-indigo-500/80 h-[85%] rounded-t-sm"></div>
+                    <div class="w-full ai-gradient h-[100%] rounded-t-sm shadow-lg shadow-indigo-500/20"></div>
+                </div>
+                <div class="flex justify-between mt-2 text-[10px] text-slate-500 uppercase font-bold px-1">
+                    <span>Lun</span>
+                    <span>Mar</span>
+                    <span>Mié</span>
+                    <span>Jue</span>
+                    <span>Vie</span>
+                    <span class="text-indigo-400">Hoy</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Feedback Section -->
+        <div class="glass-card p-5 rounded-2xl border-dashed border-slate-700">
+            <h5 class="text-center text-sm font-semibold mb-3 italic">"Sigue así, estás en el camino correcto para el PR de sentadilla la próxima semana."</h5>
+            <div class="flex justify-center gap-4">
+                <button class="p-3 rounded-xl bg-slate-800 hover:bg-slate-700 transition-colors">
+                    <i class="fa-regular fa-face-smile text-2xl text-emerald-400"></i>
+                </button>
+                <button class="p-3 rounded-xl bg-slate-800 hover:bg-slate-700 transition-colors">
+                    <i class="fa-regular fa-face-meh text-2xl text-amber-400"></i>
+                </button>
+                <button class="p-3 rounded-xl bg-slate-800 hover:bg-slate-700 transition-colors">
+                    <i class="fa-regular fa-face-frown text-2xl text-rose-400"></i>
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Bottom Action Bar -->
+    <div class="fixed bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-slate-950 via-slate-950 to-transparent">
+        <div class="max-w-md mx-auto grid grid-cols-2 gap-4">
+            <button data-goto="p10" class="py-4 rounded-2xl bg-slate-800 text-white font-bold hover:bg-slate-700 transition-all border border-slate-700">
+                Ver Perfil
+            </button>
+            <button data-goto="p4" class="py-4 rounded-2xl ai-gradient text-white font-bold hover:shadow-lg hover:shadow-indigo-500/40 transition-all">
+                Ir al Inicio
+            </button>
+        </div>
+    </div>
+
+    <!-- Page Transition Script -->
+    <script>
+        document.querySelectorAll('[data-goto]').forEach(button => {
+            button.addEventListener('click', () => {
+                const targetPage = button.getAttribute('data-goto');
+                console.log(`Navigating to: ${targetPage}`);
+                // In a real prototype, this would trigger the routing logic
+                document.body.style.opacity = '0';
+                setTimeout(() => {
+                    // Simulating a page change
+                    alert(`Navegando a la página: ${targetPage}`);
+                    document.body.style.opacity = '1';
+                }, 300);
+            });
+        });
+
+        // Add small animation to progress fill
+        window.addEventListener('load', () => {
+            const fills = document.querySelectorAll('.progress-fill');
+            fills.forEach(fill => {
+                const width = fill.parentElement.getAttribute('data-progress') || '75';
+                fill.style.width = width + '%';
+            });
+        });
+    </script>
+
+
+<script>
+  // Pro Prototype - Static Navigation Shim
+  document.addEventListener('DOMContentLoaded', () => {
+    document.body.addEventListener('click', (e) => {
+      const target = e.target.closest('[data-goto]');
+      if (target) {
+        e.preventDefault();
+        const pageId = target.getAttribute('data-goto');
+        // Navigate to the corresponding HTML file
+        window.location.href = pageId + '.html';
+      }
+    });
+  });
+</script>
+</body>
+</html>
+
+```
