@@ -1,0 +1,101 @@
+{
+  "version": 1,
+  "topic": "Actúa como un Arquitecto de Software Senior y un Product Manager experto en aplicaciones de Fitness e Inteligencia Artificial. Quiero desarrollar una aplicación móvil de gimnasio revolucionaria cuyo núcleo sea un \"Coach IA\" totalmente integrado y proactivo.\n\n**Visión del Producto:**\nLa aplicación no es solo un registro de ejercicios; es un entrenador personal inteligente de bolsillo. El usuario no elige rutinas de una lista estática; la IA genera, adapta y gestiona el plan basándose totalmente en el objetivo del usuario (ej. hipertrofia, fuerza, pérdida de grasa, resistencia) y su feedback diario.\n\n**Requisitos Funcionales Clave:**\n\n1.  **Onboarding Inteligente:** Un sistema de entrevista inicial donde la IA analice edad, peso, experiencia, lesiones, días disponibles y equipamiento para crear el \"Plan Maestro\".\n2.  **El Coach IA (Core):**\n    * Debe explicar el \"por qué\" de cada ejercicio.\n    * Debe tener capacidad de chat natural (NLP) para dudas (\"Me duele la rodilla, ¿qué hago?\", \"No tengo esta máquina\").\n    * **Adaptabilidad en Tiempo Real:** Si el usuario falla un levantamiento o se siente cansado, la IA debe reestructurar el resto del entrenamiento al instante (bajar peso, cambiar repeticiones).\n3.  **Sobrecarga Progresiva Automática:** La IA debe calcular cuándo subir los pesos o repeticiones basándose en el rendimiento de la sesión anterior, sin que el usuario tenga que adivinar.\n4.  **Feedback Visual (Opcional pero deseable):** Posibilidad de analizar la técnica mediante visión por computadora (cámara del móvil).\n\n**Lo que necesito que me entregues ahora:**\n\n1.  **Arquitectura Técnica:** Recomienda el Stack Tecnológico ideal (Frontend, Backend, Base de Datos y qué modelo de LLM/API de IA usarías para el coach).\n2.  **Modelo de Datos:** Un esquema preliminar de la base de datos para manejar Usuarios, Rutinas, Ejercicios, Historial y la \"Memoria\" de la IA.\n3.  **User Flow del \"Entrenamiento Diario\":** Paso a paso de cómo interactúa el usuario con la IA desde que abre la app hasta que termina de entrenar.\n4.  **Prompt del Sistema (System Prompt):** Escribe el prompt inicial que yo debería darle a la API de la IA (como OpenAI o Anthropic) para que se comporte como este entrenador personal empático, estricto pero motivador.\n\nPor favor, sé técnico, detallado y prioriza la escalabilidad.",
+  "createdAt": "2025-12-27T16:42:16.387Z",
+  "pages": [
+    {
+      "id": "p1",
+      "title": "Bienvenida y Splash",
+      "description": "Pantalla de carga con branding animado. Presenta la propuesta de valor: 'Tu Coach IA Personalizado'. Opción de inicio de sesión único (SSO).",
+      "status": "completed",
+      "suggestedNavigation": [
+        "p2"
+      ]
+    },
+    {
+      "id": "p2",
+      "title": "Onboarding Conversacional (La Entrevista)",
+      "description": "Interfaz tipo chat donde la IA pregunta sobre objetivos (hipertrofia, fuerza), equipo disponible, lesiones y nivel de experiencia. Recopila datos biométricos de forma natural.",
+      "status": "completed",
+      "suggestedNavigation": [
+        "p3"
+      ]
+    },
+    {
+      "id": "p3",
+      "title": "Generación del Plan Maestro",
+      "description": "Visualización dinámica del plan de entrenamiento creado por la IA. Explica la lógica detrás de la periodización y permite ajustes rápidos antes de confirmar.",
+      "status": "completed",
+      "suggestedNavigation": [
+        "p4"
+      ]
+    },
+    {
+      "id": "p4",
+      "title": "Dashboard Principal (Home)",
+      "description": "Estado actual del progreso, widget del entrenamiento del día y acceso directo al Coach IA. Muestra la 'Memoria de la IA' con frases motivadoras basadas en sesiones previas.",
+      "status": "completed",
+      "suggestedNavigation": [
+        "p5",
+        "p7",
+        "p10"
+      ]
+    },
+    {
+      "id": "p5",
+      "title": "Sesión de Entrenamiento Activa",
+      "description": "Interfaz de ejecución ejercicio por ejercicio. Muestra peso/reps sugeridos por la IA. Botones de 'Fallo' o 'Demasiado Fácil' para activar la reestructuración instantánea.",
+      "status": "completed",
+      "suggestedNavigation": [
+        "p6",
+        "p8",
+        "p9"
+      ]
+    },
+    {
+      "id": "p6",
+      "title": "Módulo de Adaptación en Tiempo Real",
+      "description": "Superposición activada por feedback del usuario (ej. fatiga alta). La IA recalcula el volumen de la sesión actual y ofrece alternativas de ejercicios si una máquina está ocupada.",
+      "status": "completed",
+      "suggestedNavigation": [
+        "p5"
+      ]
+    },
+    {
+      "id": "p7",
+      "title": "Chat del Coach IA (NLP)",
+      "description": "Centro de consultas directas. El usuario puede preguntar por qué hace un ejercicio, pedir consejos nutricionales o reportar molestias físicas.",
+      "status": "completed",
+      "suggestedNavigation": [
+        "p4"
+      ]
+    },
+    {
+      "id": "p8",
+      "title": "Análisis de Técnica por Visión",
+      "description": "Uso de la cámara frontal/trasera. Superposición de esqueleto digital para corregir la postura en ejercicios clave como sentadillas o peso muerto mediante IA de visión.",
+      "status": "completed",
+      "suggestedNavigation": [
+        "p5"
+      ]
+    },
+    {
+      "id": "p9",
+      "title": "Resumen y Sobrecarga Progresiva",
+      "description": "Análisis post-entreno. La IA confirma el incremento de cargas para la próxima sesión basándose en el rendimiento (RPE) y datos de la sesión terminada.",
+      "status": "completed",
+      "suggestedNavigation": [
+        "p4"
+      ]
+    },
+    {
+      "id": "p10",
+      "title": "Perfil y Configuración Técnica",
+      "description": "Ajustes de cuenta, integración con wearables, historial de métricas y configuración de la personalidad del Coach (estricto, motivador o clínico).",
+      "status": "completed",
+      "suggestedNavigation": [
+        "p4"
+      ]
+    }
+  ]
+}
